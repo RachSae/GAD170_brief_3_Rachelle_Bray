@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RachelleBray
-
-public class HealthPack : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+
+    public class HealthPack : MonoBehaviour
     {
-        if (other.gameObject.activeSelf)
     }
 }

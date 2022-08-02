@@ -10,6 +10,7 @@ using UnityEngine;
 public class TankControls
 {
     public enum KeyType { Movement, Rotation, Fire }
+    // NOTE add turret roation to keyType
 
     public KeyCode forward = KeyCode.W; // the forward button to use
     public KeyCode backwards = KeyCode.S; // the backwards button
