@@ -9,7 +9,7 @@ using UnityEngine;
 [System.Serializable]
 public class TankControls
 {
-    public enum KeyType { Movement, Rotation, Fire }
+    public enum KeyType { Movement, Rotation, Fire, TurretRotation }
     // NOTE add turret roation to keyType
 
     public KeyCode forward = KeyCode.W; // the forward button to use
@@ -18,6 +18,8 @@ public class TankControls
     public KeyCode right = KeyCode.D; // the right button
     public KeyCode fireButton = KeyCode.Space; // the button to fire
     private bool fireButtonWasPressed = false; // has the fire button been pressed?
+    public KeyCode turnLeft = KeyCode.LeftArrow;
+    public KeyCode turnRight = KeyCode.RightArrow; 
 
     /// <summary>
     /// If the value returned is postive then the postive axis has been pressed for that key.
@@ -69,6 +71,18 @@ public class TankControls
                         fireButtonWasPressed = false;
                         currentValue = -1;
                         //Debug.Log("Fire Released");
+                    }
+                    break;
+                }
+            case KeyType.TurretRotation:
+                {
+                    if (Input.GetKey(turnRight)) 
+                    {
+                        currentValue = 1; 
+                    }
+                    else if (Input.GetKey(turnLeft))
+                    {
+                        currentValue = -1; 
                     }
                     break;
                 }

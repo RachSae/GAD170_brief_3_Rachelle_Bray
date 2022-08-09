@@ -18,6 +18,10 @@ public class Tank : MonoBehaviour
     public TankMainGun tankMainGun = new TankMainGun(); // creating a new instance of our tank main gun script
     public GameObject explosionPrefab; // the prefab we will use when we have 0 left to make it go boom!
 
+    //reference for tank turret
+    [SerializeField] private Transform tankTurret;
+    
+
     private void OnEnable()
     {
         TankGameEvents.OnObjectDestroyedEvent += Dead; // add dead function to the event for when a tank is destroyed
@@ -49,7 +53,7 @@ public class Tank : MonoBehaviour
     void Update()
     { 
         // passes in the values from our key input, to our motor to make it move
-        tankMovement.HandleMovement(tankControls.ReturnKeyValue(TankControls.KeyType.Movement), tankControls.ReturnKeyValue(TankControls.KeyType.Rotation));
+        tankMovement.HandleMovement(tankControls.ReturnKeyValue(TankControls.KeyType.Movement), tankControls.ReturnKeyValue(TankControls.KeyType.Rotation), tankControls.ReturnKeyValue(TankControls.KeyType.TurretRotation));
         tankMainGun.UpdateMainGun(tankControls.ReturnKeyValue(TankControls.KeyType.Fire)); // grab the input from the fire key
     }
 
