@@ -18,7 +18,7 @@ public class TankMovement
     private Rigidbody rigidbody;// a reference to the rigidbody on our tank
     private bool enableMovement = true; // if this is true we are allowed to accept input from the player
 
-    private Transform tankReference; // a reference to the tank gameobject
+    public Transform tankReference; // a reference to the tank gameobject
 
     [SerializeField] GameObject turretReference;
 
